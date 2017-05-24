@@ -1,0 +1,20 @@
+{
+  "description": "Pipeline for parsing monit monit logs",
+  "processors": [
+  	{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{SYSLOGTIMESTAMP:timestamp}.*%{LOGLEVEL}.*%{QUOTEDSTRING:worker}.*pid.*%{NUMBER:pid}",
+        "%{SYSLOGTIMESTAMP:timestamp}.*%{LOGLEVEL}.*%{QUOTEDSTRING:worker}%{GREEDYDATA}"
+        ],
+      "ignore_missing": true
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error.message",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

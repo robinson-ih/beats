@@ -1,0 +1,9 @@
+- key: monit
+  title: "monit"
+  description: >
+    monit Module
+  fields:
+    - name: monit
+      type: group
+      description: >
+      fields:

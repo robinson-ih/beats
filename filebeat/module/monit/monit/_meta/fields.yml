@@ -1,0 +1,9 @@
+- name: monit
+  type: group
+  description: >
+    monit
+  fields:
+    - name: example
+      type: keyword
+      description: >
+        Example field

@@ -1,0 +1,3 @@
+== monit module
+
+This is the monit module.
