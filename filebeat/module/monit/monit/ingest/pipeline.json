@@ -5,9 +5,10 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{MONIT_TIMESTAMP:monit.timestamp}]\s{LOGLEVEL:log}.*'delayed_job.%{INT:delayed_job}'.*pid.*%{NUMBER:pid}",
-        "%{MONIT_TIMESTAMP:monit.timestamp}]\s%{LOGLEVEL:log}.*'delayed_job.%{INT:delayed_job}'%{GREEDYDATA}",
-        "%{MONIT_TIMESTAMP:monit.timestamp}]\s%{LOGLEVEL:log}%{GREEDYDATA}"
+        "%{MONIT_TIMESTAMP:monit.timestamp}]%{SPACE}%{LOGLEVEL:log}.*'delayed_job.%{INT:delayed_job}'.*pid.*%{NUMBER:pid}",
+        "%{MONIT_TIMESTAMP:monit.timestamp}]%{SPACE}%{LOGLEVEL:log}.*'delayed_job.%{INT:delayed_job}'%{GREEDYDATA}",
+        "%{MONIT_TIMESTAMP:monit.timestamp}]%{SPACE}%{LOGLEVEL:log}%{GREEDYDATA}",
+        "%{GREEDYDATA}"
         ],
        "pattern_definitions": {
           "MONIT_TIMESTAMP": "%{TZ} %{MONTH} %{MONTHDAY} %{TIME}"
